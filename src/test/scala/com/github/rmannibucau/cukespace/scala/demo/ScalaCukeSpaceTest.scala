@@ -7,7 +7,6 @@ import org.jboss.shrinkwrap.api.ShrinkWrap
 import org.jboss.shrinkwrap.api.spec.WebArchive
 import org.jboss.shrinkwrap.api.asset.EmptyAsset
 import cucumber.api.scala.{EN, ScalaDsl}
-import org.apache.ziplock.JarLocation.jarLocation
 import javax.inject.Inject
 import org.junit.Assert.{assertEquals, assertNotNull}
 
@@ -17,9 +16,6 @@ object ScalaCukeSpaceTest {
     ShrinkWrap.create(classOf[WebArchive], "cuke-in-space-with-scala.war")
       .addClass(classOf[ScalaStuff])
       .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
-      .addAsLibraries(
-        jarLocation(classOf[ScalaDsl]),
-        jarLocation(classOf[App]))
   }
 }
 
